@@ -113,6 +113,74 @@ html, body {
   color: var(--button-text-hover);
 }
 
-.hero-image {
-    
+.hero {
+  position: relative;
+  height: 520px;              /* adjust */
+  display: grid;
+  place-items: start;
+  text-align: start;
+
+  background-image: url("homepage.png");
+  background-size: cover;      /* fills like the example site */
+  background-repeat: no-repeat;
+  background-position: 60% 20%;
+}
+
+/* Dark overlay layer */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);  /* adjust darkness */
+}
+
+/* Text sits above overlay */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding: 2rem 1rem;
+  top: 20%;
+  right: 20%; 
+}
+
+.hero-content h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-content p {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    left:6%;
+}
+
+/* Optional: make the hero button match nicer */
+.hero-btn {
+  margin: 1rem;
+  position: relative;
+  width: fit-content;
+  border-radius: 10px; /* your btn is 8% rn which gets weird */
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.service-btn {
+  margin: 1rem;
+  position: relative;
+  width: fit-content;
+  border-radius: 10px; /* your btn is 8% rn which gets weird */
+  letter-spacing: 1px;
+  text-decoration: none;
 }
