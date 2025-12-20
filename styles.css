@@ -1,26 +1,33 @@
 * { box-sizing: border-box; }
 
 :root {
-  --bg: #2d3250;
-  --text: #ffffff;
-  --button: #ffb17a;
-  --symbols: #424769;
-  --panels: #676f9d;
+  /* Base */
+  --bg: #0b1020;                 /* deep navy */
+  --bg-2: #0f1630;               /* section alt */
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
 
-  --bg-2: #232844;
-  --panel-strong: #3a3f60;
-  --link: rgba(255, 255, 255, 0.92);
-  --link-hover: #ffb17a;
-  --border: rgba(255, 255, 255, 0.12);
-  --button-text-hover: #1f233a;
+  /* Cards */
+  --panel: rgba(255,255,255,.06);
+  --panel-strong: rgba(255,255,255,.09);
+  --border: rgba(255,255,255,.14);
+
+  /* Accent */
+  --accent: #ffb17a;             /* your peach */
+  --accent-2: rgba(255,177,122,.18);
+
+  /* Misc */
+  --shadow: 0 18px 50px rgba(0,0,0,.45);
 }
 
-html, body { 
-  margin: 0; 
-  padding: 0; 
+html, body {
+  margin: 0;
+  padding: 0;
   font-family: "Raleway", sans-serif;
-  background: var(--bg); 
-  color: var(--text); 
+  background: radial-gradient(1200px 600px at 20% 0%, rgba(255,177,122,.10), transparent 60%),
+              radial-gradient(900px 500px at 80% 10%, rgba(103,111,157,.18), transparent 55%),
+              var(--bg);
+  color: var(--text);
 }
 
 .container { 
@@ -183,4 +190,85 @@ html, body {
   border-radius: 10px; /* your btn is 8% rn which gets weird */
   letter-spacing: 1px;
   text-decoration: none;
+}
+
+/* ===== Services Section ===== */
+.services {
+  padding: 4rem 0 5rem;
+}
+
+.services h3 {
+  margin: 0 0 1.75rem;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+/* Card */
+.grid-item {
+  background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 1.6rem 1.4rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.20);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle accent glow */
+.grid-item::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(600px 180px at 20% 0%, rgba(255,177,122,.18), transparent 60%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.grid-item h4 {
+  position: relative;
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.services-subtitles {
+  position: relative;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+/* Better than <br>: make it a list */
+.services-subtitles li {
+  margin: 0.25rem 0;
+}
+
+/* Hover */
+.grid-item:hover {
+  transform: translateY(-6px);
+  transition: 0.18s ease;
+  border-color: rgba(255,177,122,.35);
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  background: rgba(255,177,122,.92);
+  filter: brightness(1.05);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .grid-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .grid-container { grid-template-columns: 1fr; }
 }
