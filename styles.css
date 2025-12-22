@@ -42,6 +42,12 @@ html, body {
   margin: 0 auto; 
 }
 
+.container-thanks {
+  width: min(1100px, calc(100% - 2rem)); 
+  margin: auto; 
+  place-items: center;
+}
+
 /* ===== Header ===== */
 .site-header {
   position: sticky;
@@ -77,6 +83,15 @@ html, body {
   background-color: var(--panel-strong);
   border: 1px solid var(--border);
   color: var(--text);
+}
+
+.back {
+  text-decoration: none;
+  color: var(--text);;
+}
+
+.logo a:hover{
+  color:var(--accent); 
 }
 
 .brand h1 {
@@ -135,7 +150,7 @@ html, body {
   place-items: start;
   text-align: start;
 
-  background-image: url("homepage.png");
+  background-image: url("./images/homepage.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 60% 20%;
@@ -309,7 +324,6 @@ html, body {
   object-fit: contain;
 }
 
-
 /* Responsive */
 @media (max-width: 980px) {
   .grid-container { grid-template-columns: repeat(2, 1fr); }
@@ -329,4 +343,214 @@ html, body {
     /* End position: move the width of the original images section (e.g., 3 images) */
     transform: translateX(calc(-150px * 3));
   }
+}
+
+/* enquiry form */ 
+
+/* ===== Enquiry Section ===== */
+.enquiry {
+  padding: 4rem 0;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg));
+  border-top: 1px solid var(--border);
+}
+
+.enquiry h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+}
+
+.enquiry p {
+  margin: 0 0 1.5rem;
+  opacity: 0.85;
+}
+
+/* ===== Form Card ===== */
+.form {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border-radius: 18px;
+
+  background: rgba(58, 63, 96, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.hidden { display: none; }
+
+/* Layout rows */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+/* Inputs */
+.form input[type="text"], .form input[type="email"], .form input[type="tel"], .form select, .form textarea {
+  width: 100%;
+  padding: 0.85rem 0.9rem;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: var(--text);
+
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Focus state */
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: rgba(255,177,122,0.55);
+  box-shadow: 0 0 0 4px rgba(255,177,122,0.18);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Placeholder */
+.form textarea::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+/* Checkbox row */
+.checkbox {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.2rem 0 1.4rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--button);
+}
+
+/* Submit button - use your .btn but make it fit nicely in forms */
+.form button.btn {
+  width: 100%;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  letter-spacing: 1px;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    padding: 1.4rem;
+  }
+}
+
+
+.site-footer {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 18px;
+
+  background: rgba(58, 63, 96, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+
+  text-align: center;
+}
+
+.footer-link a{
+  text-decoration: none;
+  color: var(--link);
+}
+
+.footer-link a:hover{
+  color: var(--link-hover)
+}
+
+
+.containers {
+  display: flex;
+  justify-content: center;
+}
+
+/* services */
+.s-grid-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 20px 0px 100px;
+}
+
+/* about*/
+.s-grid-containers {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 20px 0px 60px;
+}
+
+.a-grid-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  left: 15%;
+  padding: 20px 0px 60px;
+}
+
+.s-grid-container h3 {
+  position: relative;
+  left: 10%
+}
+
+.cropper {
+  width: 350px;
+  height: 450px; 
+  overflow: hidden;
+  position: relative;
+  border-radius: 12%;
+}
+
+.cropper img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-64%,-30%);
+}
+
+.image-float {
+  float: left;
+  margin: 0 2rem 1.5rem 0;   /* space between image & text */
+}
+
+.grid-item-s {
+  background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 1.6rem 1.4rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.20);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }

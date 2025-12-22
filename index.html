@@ -27,7 +27,7 @@
                 <nav class ="nav"> 
                     <a class = "li" href="./services.html"> Services </a>
                     <a class = "li" href="./about.html"> About Me</a>
-                    <a class = "btn" href = "enquiry"> Contact us</a>
+                    <a class = "btn" href = "#enquiry"> Contact us</a>
                 </nav>
             </div>
         </header>
@@ -49,19 +49,19 @@
             <div class="slider-container">
                 <div class="slide-track">
                     <!-- Add your images here (use the same size for a smooth slide) -->
-                    <img src="myob-logo-1080x675.jpg" alt="MYOB">
-                    <img src="ASIC.png" alt="Accounting software">
-                    <img src="XERO.jpg" alt="Accounting software">
+                    <img src="./images/myob-logo-1080x675.jpg" alt="Accounting software">
+                    <img src="./images/ASIC.png" alt="Accounting software">
+                    <img src="./images/XERO.jpg" alt="Accounting software">
                     <!-- For an infinite loop, it is helpful to duplicate the images -->
-                    <img src="myob-logo-1080x675.jpg" alt="Accounting software">
-                    <img src="ASIC.png" alt="Accounting software">
-                    <img src="XERO.jpg" alt="Accounting software">
-                    <img src="myob-logo-1080x675.jpg" alt="Accounting software">
-                    <img src="ASIC.png" alt="Accounting software">
-                    <img src="XERO.jpg" alt="Accounting software">
-                    <img src="myob-logo-1080x675.jpg" alt="Accounting software">
-                    <img src="ASIC.png" alt="Accounting software">
-                    <img src="XERO.jpg" alt="Accounting software">
+                    <img src="./images/myob-logo-1080x675.jpg" alt="Accounting software">
+                    <img src="./images/ASIC.png" alt="Accounting software">
+                    <img src="./images/XERO.jpg" alt="Accounting software">
+                    <img src="./images/myob-logo-1080x675.jpg" alt="Accounting software">
+                    <img src="./images/ASIC.png" alt="Accounting software">
+                    <img src="./images/XERO.jpg" alt="Accounting software">
+                    <img src="./images/myob-logo-1080x675.jpg" alt="Accounting software">
+                    <img src="./images/ASIC.png" alt="Accounting software">
+                    <img src="./images/XERO.jpg" alt="Accounting software">
                 </div>
             </div>
 
@@ -126,14 +126,83 @@
             </div>
             </section>
 
+            <!-- Netlify Forms -->
 
-            <section class="enquiry">
+            <section id = "enquiry"> 
+                <div class = "container"> 
+                    <h3> Enquiry form</h3>
+                    <p> We'll get back to you within 1 business day.</p>
+                    <form name="enquiries", method = "POST" data-netlify="true" class="form">
+                        <input type= "hidden" name= "form-name" value="enquiries"/>
+                        <input type= "hidden" name= "redirect" value="/thank-you.html" />
+                        <!--bot trap-->
+                        <p class="hidden">
+                            <label>
+                                Don’t fill this out:
+                                <input name="bot-field" />
+                            </label>
+                        </p>
+                        <div class = "form-row">
+                            <label>
+                                Full name: <input name="name" type="text" autocomplete="name" required />
+                            </label>
 
-            </section>
+                            <label>
+                                Email: <input name="email" type="email" autocomplete="email" required />
+                            </label>
+                        </div>
+
+                        <div class="form-row">
+                            <label>
+                                Phone: <input name="phone" type="tel" required>
+                            </label>
+                            <label>
+                                Enquiry type:
+                                <select name="enquiry_type" required>
+                                    <option value="" disabled selected>Select…</option>
+                                    <option>Individual tax return</option>
+                                    <option>Business tax / BAS</option>
+                                    <option>Bookkeeping</option>
+                                    <option>Advisory</option>
+                                    <option>Other</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <label>
+                            Message
+                            <textarea
+                            name="message"
+                            rows="6"
+                            required
+                            placeholder="Tell us what you need help with…"
+                            ></textarea>
+                        </label>
+
+                        <label class="checkbox">
+                            <input type="checkbox" name="consent" required />
+                            I agree to be contacted about my enquiry.
+                        </label>
+
+                        <button class="btn" type="submit">Submit enquiry</button>
+    
+                    </form>
+
+                </div>   
         </main>
 
-        <footer>
-
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <p>© <span id="year"></span> Oak & Ledger Accounting</p>
+                <div class="footer-link">
+                    <a href ="privacy.html">Privacy</a>
+                    <a href = "terms.html">• Terms • Liability disclaimer</a>
+                </div>
+            </div>
         </footer>
+
+        <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
     </body>
 </html>
